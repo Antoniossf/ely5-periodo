@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>fornecedores</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+        <style>
+            .header-small {
+                color: rgb(0, 0, 0);
+                padding: 10px 0;
+                text-align: center;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+            }
+            .header-small h1 {
+                margin: 0;
+                font-size: 2rem;
+                font-weight: 500;
+            }
+
+            #loadingSpinner {
+                z-index: 2050;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header-small">
+	        <h1>Cadastro de fornecedores</h1>
+	    </header>
+
+        <div class="input-group mb-3">
+            <button type="button" class="btn btn-primary" onclick="novo()">Novo</button> 
+            <input type="text" class="form-control" placeholder="Pesquisa" aria-label="Pesquisa"           aria-describedby="button-addon2" id="pesquisa">
+            <button class="btn btn-outline-secondary" type="button" 
+                id="button-addon2" onclick="listar(true)">Pesquisa</button>
+        </div>
+
+        <table class="table table-striped table-hover">
+            <thead>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>cnpj</th>
+            <th>email</th>
+            <th>telefone</th>
+            <th>endereco</th>
+            <th></th>
+            </thead>
+            <tbody id="lista"></tbody>
+            </tbody>
+        </table>
+
+        <div class="modal" tabindex="-1" id="modalcadastro">
+            <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">Cadastro de fornecedores</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formcadastro">
+                <input type="hidden" id="idtime">
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" name="nome">
+                </div>
+                <div class="mb-3">
+                    <label for="cnpj" class="form-label">cnpj</label>
+                    <input type="text" class="form-control" id="cnpj" name="cnpj">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">email</label>
+                    <input type="text" class="form-control" id="email" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="telefone" class="form-label">telefone</label>
+                    <input type="text" class="form-control" id="telefone" name="telefone">
+                </div>
+                <div class="mb-3">
+                    <label for="endereco" class="form-label">endereco</label>
+                    <input type="text" class="form-control" id="endereco" name="endereco">
+                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" onclick="salvar()">Salvar</button>
+            </div>
+            </div>
+            </div>
+        </div>
+
+        <div id="loadingSpinner" class="d-none position-fixed top-50 start-50 translate-middle">
+            <div class="spinner-border text-primary" role="status">
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="fornecedor.js"></script>
+
+    </body>
+</html>
